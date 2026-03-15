@@ -47,7 +47,7 @@ export function SidebarNav() {
             <Trophy className="h-5 w-5" />
           </div>
           <span className="text-xl font-bold tracking-tight group-data-[collapsible=icon]:hidden font-headline">
-            CricketTrack
+            CKL Official
           </span>
         </div>
       </SidebarHeader>

@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'CricketTrack - Academy Management',
+  title: 'CKL Official - Academy Management',
   description: 'Manage your cricket academy, track player performance, and schedule matches with AI insights.',
 };
 

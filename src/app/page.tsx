@@ -9,7 +9,7 @@ export default function LandingPage() {
       <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <Link className="flex items-center justify-center gap-2" href="/">
           <Trophy className="h-6 w-6 text-primary" />
-          <span className="font-bold text-xl font-headline tracking-tighter">CricketTrack</span>
+          <span className="font-bold text-xl font-headline tracking-tighter">CKL Official</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
@@ -26,7 +26,7 @@ export default function LandingPage() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2 max-w-3xl">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
-                  Elevate Your Academy with <span className="text-primary">Precision Tracking</span>
+                  Elevate Your Academy with <span className="text-primary">CKL Official</span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   The ultimate management platform for cricket academies. Track player stats, schedule sessions, and unlock AI-powered performance insights.
@@ -78,9 +78,9 @@ export default function LandingPage() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <Trophy className="h-5 w-5 text-primary" />
-            <span className="font-bold">CricketTrack</span>
+            <span className="font-bold">CKL Official</span>
           </div>
-          <p className="text-sm text-muted-foreground">© 2024 CricketTrack Academy Systems. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2024 CKL Official Academy Systems. All rights reserved.</p>
           <div className="flex gap-4">
             <Link className="text-sm text-muted-foreground hover:underline underline-offset-4" href="#">
               Privacy Policy

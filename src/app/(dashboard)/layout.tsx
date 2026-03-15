@@ -17,7 +17,7 @@ export default function DashboardLayout({
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <div className="flex-1">
-              <h1 className="text-sm font-semibold text-muted-foreground">Cricket Academy Portal</h1>
+              <h1 className="text-sm font-semibold text-muted-foreground">CKL Official Academy Portal</h1>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
