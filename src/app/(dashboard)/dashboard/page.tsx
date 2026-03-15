@@ -12,7 +12,7 @@ import {
   Tooltip,
   Cell
 } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/chart"
 
 const data = [
   { name: "Mon", runs: 45 },
@@ -25,7 +25,7 @@ const data = [
 ]
 
 const stats = [
-  { title: "Total Players", value: "48", icon: Users, description: "+4 from last month", color: "text-blue-600" },
+  { title: "Total Players", value: "3", icon: Users, description: "Active members", color: "text-blue-600" },
   { title: "Upcoming Matches", value: "3", icon: Trophy, description: "Next: vs Tigers CC", color: "text-amber-600" },
   { title: "Training Sessions", value: "12", icon: Calendar, description: "8 scheduled this week", color: "text-emerald-600" },
   { title: "Avg. Strike Rate", value: "112.4", icon: TrendingUp, description: "+5.2% improvement", color: "text-purple-600" },
