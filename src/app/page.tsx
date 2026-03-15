@@ -1,6 +1,6 @@
 
 import Link from "next/link"
-import { Trophy, ArrowRight, ShieldCheck, BarChart3, Users } from "lucide-react"
+import { Trophy, ArrowRight, ShieldCheck, BarChart3, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function LandingPage() {
@@ -51,10 +51,10 @@ export default function LandingPage() {
             <div className="grid gap-12 lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="p-4 bg-primary/10 rounded-2xl">
-                  <Users className="h-8 w-8 text-primary" />
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold font-headline">Roster Management</h3>
-                <p className="text-muted-foreground">Easily organize players by age group, role, and skill level. Manage profiles and history in one place.</p>
+                <h3 className="text-xl font-bold font-headline">Session Scheduling</h3>
+                <p className="text-muted-foreground">Keep your academy organized with integrated scheduling for training, matches, and coaching sessions.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="p-4 bg-blue-100 rounded-2xl">

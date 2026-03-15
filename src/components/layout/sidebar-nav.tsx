@@ -6,7 +6,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { 
   LayoutDashboard, 
-  Users, 
   Trophy, 
   Calendar, 
   BarChart3, 
@@ -29,7 +28,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
-  { name: "Roster", icon: Users, href: "/players" },
   { name: "Stats Entry", icon: PlusCircle, href: "/stats/entry" },
   { name: "Matches", icon: Trophy, href: "/matches" },
   { name: "Schedule", icon: Calendar, href: "/schedule" },
