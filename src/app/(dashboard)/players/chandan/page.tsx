@@ -46,8 +46,8 @@ const playerData = {
     },
     bowling: {
       matches: 12,
-      wickets: 0,
-      economy: 0,
+      wickets: 21,
+      economy: 5.4,
     },
     fielding: {
       catches: 5,
@@ -60,9 +60,9 @@ const playerData = {
     ]
   },
   historyData: [
-    { month: "Jan", runs: 40 },
-    { month: "Feb", runs: 65 },
-    { month: "Mar", runs: 135 },
+    { month: "Jan", runs: 40, wickets: 4 },
+    { month: "Feb", runs: 65, wickets: 8 },
+    { month: "Mar", runs: 135, wickets: 9 },
   ]
 }
 
@@ -106,36 +106,42 @@ export default function ChandanProfilePage() {
             </TabsList>
 
             <TabsContent value="stats" className="space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.runs}</div>
-                    <div className="text-xs text-muted-foreground">Runs Scored</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Runs</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold text-primary">{playerData.stats.bowling.wickets}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Wickets</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.fours}</div>
-                    <div className="text-xs text-muted-foreground">Fours</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Fours</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.sixes}</div>
-                    <div className="text-xs text-muted-foreground">Sixes</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Sixes</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.strikeRate}</div>
-                    <div className="text-xs text-muted-foreground">Strike Rate</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">SR</div>
                   </CardContent>
                 </Card>
               </div>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Scoring Trend</CardTitle>
+                  <CardTitle className="text-lg">Scoring & Wicket Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[300px]">
@@ -146,12 +152,17 @@ export default function ChandanProfilePage() {
                             <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
                             <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
                           </linearGradient>
+                          <linearGradient id="colorWickets" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="hsl(var(--secondary))" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="hsl(var(--secondary))" stopOpacity={0}/>
+                          </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee" />
                         <XAxis dataKey="month" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <Tooltip />
-                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRuns)" strokeWidth={3} />
+                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRuns)" strokeWidth={3} name="Runs" />
+                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--secondary))" fillOpacity={1} fill="url(#colorWickets)" strokeWidth={3} name="Wickets" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
