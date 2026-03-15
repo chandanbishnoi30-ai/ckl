@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -7,13 +6,9 @@ import { usePathname } from "next/navigation"
 import { 
   LayoutDashboard, 
   Trophy, 
-  Calendar, 
-  BarChart3, 
   Settings,
-  PlusCircle,
   LogOut,
-  User,
-  Users
+  User
 } from "lucide-react"
 
 import {
@@ -33,10 +28,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
-  { name: "Stats Entry", icon: PlusCircle, href: "/stats/entry" },
-  { name: "Matches", icon: Trophy, href: "/matches" },
-  { name: "Schedule", icon: Calendar, href: "/schedule" },
-  { name: "Analytics", icon: BarChart3, href: "/analytics" },
 ]
 
 const playerItems = [

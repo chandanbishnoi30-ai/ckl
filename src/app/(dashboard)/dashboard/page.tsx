@@ -1,8 +1,7 @@
-
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, Trophy, Calendar, TrendingUp, CircleAlert, CheckCircle2 } from "lucide-react"
+import { Users, Trophy, TrendingUp, CheckCircle2 } from "lucide-react"
 import { 
   Bar, 
   BarChart, 
@@ -12,7 +11,6 @@ import {
   Tooltip,
   Cell
 } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/chart"
 
 const data = [
   { name: "Mon", runs: 45 },
@@ -25,9 +23,7 @@ const data = [
 ]
 
 const stats = [
-  { title: "Total Players", value: "3", icon: Users, description: "Active members", color: "text-blue-600" },
-  { title: "Upcoming Matches", value: "3", icon: Trophy, description: "Next: vs Tigers CC", color: "text-amber-600" },
-  { title: "Training Sessions", value: "12", icon: Calendar, description: "8 scheduled this week", color: "text-emerald-600" },
+  { title: "Total Players", value: "3", icon: Users, description: "Chandan, Krishan, Laxman", color: "text-blue-600" },
   { title: "Avg. Strike Rate", value: "112.4", icon: TrendingUp, description: "+5.2% improvement", color: "text-purple-600" },
 ]
 
@@ -36,10 +32,10 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-1">
         <h2 className="text-3xl font-bold tracking-tight font-headline">Academy Overview</h2>
-        <p className="text-muted-foreground">Welcome back! Here's what's happening at the academy today.</p>
+        <p className="text-muted-foreground">Welcome back! Here's a quick look at your academy's performance.</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2">
         {stats.map((stat) => (
           <Card key={stat.title} className="hover:shadow-md transition-shadow cursor-default">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -58,7 +54,7 @@ export default function DashboardPage() {
         <Card className="lg:col-span-4">
           <CardHeader>
             <CardTitle>Team Performance Trend</CardTitle>
-            <CardDescription>Average runs scored per session this week</CardDescription>
+            <CardDescription>Average runs scored per player this week</CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
             <div className="h-[300px]">
@@ -93,7 +89,7 @@ export default function DashboardPage() {
         <Card className="lg:col-span-3">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Stay updated with the latest academy events</CardDescription>
+            <CardDescription>Latest performance updates</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-8">
@@ -102,17 +98,8 @@ export default function DashboardPage() {
                   <CheckCircle2 className="h-4 w-4 text-blue-600" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">Stats entered for Chandan - Session #23</p>
+                  <p className="text-sm font-medium leading-none">Chandan achieved new personal best</p>
                   <p className="text-xs text-muted-foreground">2 hours ago</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="bg-amber-100 p-2 rounded-full mr-4">
-                  <CircleAlert className="h-4 w-4 text-amber-600" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">New match scheduled vs Royal XI</p>
-                  <p className="text-xs text-muted-foreground">5 hours ago</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -120,8 +107,17 @@ export default function DashboardPage() {
                   <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">Player profile: Krishan updated</p>
+                  <p className="text-sm font-medium leading-none">Krishan profile updated with session #22</p>
                   <p className="text-xs text-muted-foreground">Yesterday</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="bg-purple-100 p-2 rounded-full mr-4">
+                  <TrendingUp className="h-4 w-4 text-purple-600" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium leading-none">Laxman bowling economy improved</p>
+                  <p className="text-xs text-muted-foreground">2 days ago</p>
                 </div>
               </div>
             </div>
