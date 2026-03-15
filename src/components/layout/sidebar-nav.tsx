@@ -11,7 +11,9 @@ import {
   BarChart3, 
   Settings,
   PlusCircle,
-  LogOut
+  LogOut,
+  User,
+  Users
 } from "lucide-react"
 
 import {
@@ -23,6 +25,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarGroupContent
 } from "@/components/ui/sidebar"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
@@ -32,6 +37,12 @@ const navItems = [
   { name: "Matches", icon: Trophy, href: "/matches" },
   { name: "Schedule", icon: Calendar, href: "/schedule" },
   { name: "Analytics", icon: BarChart3, href: "/analytics" },
+]
+
+const playerItems = [
+  { name: "Chandan", href: "/players/chandan" },
+  { name: "Krishan", href: "/players/krishan" },
+  { name: "Laxman", href: "/players/laxman" },
 ]
 
 export function SidebarNav() {
@@ -51,22 +62,49 @@ export function SidebarNav() {
       </SidebarHeader>
       <SidebarSeparator />
       <SidebarContent>
-        <SidebarMenu className="px-2 py-4">
-          {navItems.map((item) => (
-            <SidebarMenuItem key={item.name}>
-              <SidebarMenuButton
-                asChild
-                isActive={pathname === item.href}
-                tooltip={item.name}
-              >
-                <Link href={item.href}>
-                  <item.icon className="h-4 w-4" />
-                  <span>{item.name}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
+        <SidebarGroup>
+          <SidebarGroupLabel>Menu</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {navItems.map((item) => (
+                <SidebarMenuItem key={item.name}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.name}
+                  >
+                    <Link href={item.href}>
+                      <item.icon className="h-4 w-4" />
+                      <span>{item.name}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Academy Players</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {playerItems.map((player) => (
+                <SidebarMenuItem key={player.name}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === player.href}
+                    tooltip={player.name}
+                  >
+                    <Link href={player.href}>
+                      <User className="h-4 w-4" />
+                      <span>{player.name}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="p-4">
         <SidebarMenu>
