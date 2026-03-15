@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from "react"
@@ -29,7 +28,7 @@ import {
 const playerData = {
   name: "Chandan",
   role: "Batsman",
-  age: 22,
+  age: 17,
   hand: "Right-hand",
   status: "Active",
   stats: {

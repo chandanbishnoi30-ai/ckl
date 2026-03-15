@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from "react"
@@ -35,7 +34,7 @@ const mockPlayerData = {
   id: "p1",
   name: "Chandan",
   role: "Batsman",
-  age: 22,
+  age: 17,
   hand: "Right-hand",
   style: "Aggressive",
   status: "Active",
