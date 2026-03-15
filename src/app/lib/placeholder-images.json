@@ -1,0 +1,29 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-cricket",
+      "description": "Cricket academy training session",
+      "imageUrl": "https://picsum.photos/seed/cricket1/1200/800",
+      "imageHint": "cricket training"
+    },
+    {
+      "id": "player-1",
+      "description": "Professional cricket player portrait",
+      "imageUrl": "https://picsum.photos/seed/player1/400/400",
+      "imageHint": "cricket player"
+    },
+    {
+      "id": "player-2",
+      "description": "Cricket batsman in action",
+      "imageUrl": "https://picsum.photos/seed/player2/400/400",
+      "imageHint": "batsman action"
+    },
+    {
+      "id": "academy-logo",
+      "description": "CricketTrack Academy Logo",
+      "imageUrl": "https://picsum.photos/seed/logo/200/200",
+      "imageHint": "cricket logo"
+    }
+  ]
+}
