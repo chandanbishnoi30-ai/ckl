@@ -43,13 +43,13 @@ const mockPlayerData = {
     batting: {
       matches: 45,
       innings: 42,
-      runs: 1250,
-      average: 35.4,
+      runs: 240,
+      average: 5.7,
       strikeRate: 128.1,
-      fifties: 8,
-      hundreds: 1,
-      fours: 120,
-      sixes: 45,
+      fifties: 2,
+      hundreds: 0,
+      fours: 14,
+      sixes: 22,
       dismissalTypes: { "Caught": 12, "Bowled": 8, "LBW": 4, "Run Out": 2 }
     },
     bowling: {
@@ -77,12 +77,11 @@ const mockPlayerData = {
     ]
   },
   historyData: [
-    { month: "Jan", runs: 240, strikeRate: 115 },
-    { month: "Feb", runs: 380, strikeRate: 128 },
-    { month: "Mar", runs: 420, strikeRate: 142 },
-    { month: "Apr", runs: 310, strikeRate: 130 },
-    { month: "May", runs: 550, strikeRate: 148 },
-    { month: "Jun", runs: 480, strikeRate: 135 },
+    { month: "Jan", runs: 40, strikeRate: 115 },
+    { month: "Feb", runs: 60, strikeRate: 128 },
+    { month: "Mar", runs: 82, strikeRate: 142 },
+    { month: "Apr", runs: 30, strikeRate: 130 },
+    { month: "May", runs: 28, strikeRate: 148 },
   ]
 }
 
@@ -145,8 +144,8 @@ export default function PlayerProfilePage() {
                 </Card>
                 <Card className="bg-card/50">
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{player.stats.batting.hundreds}</div>
-                    <div className="text-xs text-muted-foreground">Hundreds</div>
+                    <div className="text-2xl font-bold">{player.stats.batting.sixes}</div>
+                    <div className="text-xs text-muted-foreground">Sixes</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">

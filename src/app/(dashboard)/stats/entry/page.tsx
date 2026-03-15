@@ -125,7 +125,7 @@ export default function StatsEntryPage() {
                     <Input id="wickets" type="number" placeholder="0" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="conceded">Runs Conceded</Label>
+                    <Label htmlFor="conceded">Runs Scored</Label>
                     <Input id="conceded" type="number" placeholder="0" />
                   </div>
                   <div className="space-y-2">
@@ -179,7 +179,7 @@ export default function StatsEntryPage() {
               <div className="p-3 flex justify-between items-center hover:bg-muted/50 transition-colors">
                 <div>
                   <p className="font-medium">Chandan</p>
-                  <p className="text-xs text-muted-foreground">82 Runs, Session #23</p>
+                  <p className="text-xs text-muted-foreground">240 Runs (14x4, 22x6)</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </div>
