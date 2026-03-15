@@ -48,9 +48,9 @@ export default function StatsEntryPage() {
                   <SelectValue placeholder="Select Player" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="p1">Virat Kohli</SelectItem>
-                  <SelectItem value="p2">Jasprit Bumrah</SelectItem>
-                  <SelectItem value="p3">Hardik Pandya</SelectItem>
+                  <SelectItem value="p1">Chandan</SelectItem>
+                  <SelectItem value="p2">Krishan</SelectItem>
+                  <SelectItem value="p3">Laxman</SelectItem>
                 </SelectContent>
               </Select>
               <Select defaultValue="training">
@@ -178,14 +178,14 @@ export default function StatsEntryPage() {
             <div className="divide-y text-sm">
               <div className="p-3 flex justify-between items-center hover:bg-muted/50 transition-colors">
                 <div>
-                  <p className="font-medium">Virat Kohli</p>
+                  <p className="font-medium">Chandan</p>
                   <p className="text-xs text-muted-foreground">82 Runs, Session #23</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </div>
               <div className="p-3 flex justify-between items-center hover:bg-muted/50 transition-colors">
                 <div>
-                  <p className="font-medium">Jasprit Bumrah</p>
+                  <p className="font-medium">Krishan</p>
                   <p className="text-xs text-muted-foreground">3 Wickets, Session #22</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />

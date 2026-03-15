@@ -102,7 +102,7 @@ export default function DashboardPage() {
                   <CheckCircle2 className="h-4 w-4 text-blue-600" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">Stats entered for Session #23</p>
+                  <p className="text-sm font-medium leading-none">Stats entered for Chandan - Session #23</p>
                   <p className="text-xs text-muted-foreground">2 hours ago</p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function DashboardPage() {
                   <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">Player profile: Rahul M. updated</p>
+                  <p className="text-sm font-medium leading-none">Player profile: Krishan updated</p>
                   <p className="text-xs text-muted-foreground">Yesterday</p>
                 </div>
               </div>

@@ -33,41 +33,41 @@ import {
 // Mock Data for a single player
 const mockPlayerData = {
   id: "p1",
-  name: "Virat Kohli",
+  name: "Chandan",
   role: "Batsman",
-  age: 34,
+  age: 22,
   hand: "Right-hand",
   style: "Aggressive",
   status: "Active",
   stats: {
     batting: {
-      matches: 450,
-      innings: 420,
-      runs: 12500,
-      average: 52.4,
-      strikeRate: 138.1,
-      fifties: 65,
-      hundreds: 28,
-      fours: 1200,
-      sixes: 450,
-      dismissalTypes: { "Caught": 120, "Bowled": 85, "LBW": 45, "Run Out": 12 }
+      matches: 45,
+      innings: 42,
+      runs: 1250,
+      average: 35.4,
+      strikeRate: 128.1,
+      fifties: 8,
+      hundreds: 1,
+      fours: 120,
+      sixes: 45,
+      dismissalTypes: { "Caught": 12, "Bowled": 8, "LBW": 4, "Run Out": 2 }
     },
     bowling: {
-      matches: 450,
-      innings: 45,
-      balls: 240,
-      runsConceded: 320,
-      wickets: 8,
+      matches: 45,
+      innings: 5,
+      balls: 60,
+      runsConceded: 80,
+      wickets: 2,
       economy: 8.0,
       average: 40.0,
       strikeRate: 30.0,
-      maidenOvers: 2,
+      maidenOvers: 0,
       dotBallPercentage: 35
     },
     fielding: {
-      matches: 450,
-      catches: 154,
-      runOuts: 18
+      matches: 45,
+      catches: 15,
+      runOuts: 2
     },
     recentMatches: [
       { date: "2024-03-01", opponent: "Royal XI", runsScored: 82, ballsFaced: 45, dismissalType: "Not Out" },
@@ -97,7 +97,7 @@ export default function PlayerProfilePage() {
         <div className="flex items-center gap-6">
           <Avatar className="h-24 w-24 border-4 border-primary/10">
             <AvatarImage src={`https://picsum.photos/seed/${id}/200/200`} />
-            <AvatarFallback>VK</AvatarFallback>
+            <AvatarFallback>{player.name.substring(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
             <h1 className="text-3xl font-bold font-headline">{player.name}</h1>
@@ -115,7 +115,7 @@ export default function PlayerProfilePage() {
           </div>
         </div>
         <div className="flex gap-2">
-          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #4</Badge>
+          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #1</Badge>
           <Badge className="px-3 py-1 bg-emerald-500 hover:bg-emerald-600">Available</Badge>
         </div>
       </div>
@@ -226,7 +226,7 @@ export default function PlayerProfilePage() {
                     </div>
                     <div>
                       <label className="text-xs text-muted-foreground uppercase font-semibold">Join Date</label>
-                      <p className="font-medium">Jan 12, 2022</p>
+                      <p className="font-medium">Jan 12, 2024</p>
                     </div>
                   </div>
                 </CardContent>
@@ -251,17 +251,8 @@ export default function PlayerProfilePage() {
                   <Award className="h-5 w-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <p className="text-sm font-medium">Academy Player of the Year</p>
-                  <p className="text-xs text-muted-foreground">2023 Season</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                  <Trophy className="h-5 w-5" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-medium">Fastest Century</p>
-                  <p className="text-xs text-muted-foreground">Stormers vs Eagles, 2024</p>
+                  <p className="text-sm font-medium">Academy Player of the Month</p>
+                  <p className="text-xs text-muted-foreground">March 2024</p>
                 </div>
               </div>
             </CardContent>
