@@ -28,36 +28,36 @@ import {
 
 const playerData = {
   name: "Laxman",
-  role: "Bowler",
-  age: 23,
-  hand: "Left-arm",
+  role: "Spinner All-rounder",
+  age: 14,
+  hand: "Right-hand",
   status: "Active",
   stats: {
     batting: {
-      matches: 15,
-      runs: 45,
-      strikeRate: 85.0,
+      matches: 18,
+      runs: 253,
+      strikeRate: 112.4,
     },
     bowling: {
-      matches: 15,
-      wickets: 12,
-      economy: 6.5,
-      average: 14.2,
-      strikeRate: 18.0,
+      matches: 18,
+      wickets: 29,
+      economy: 4.8,
+      average: 12.5,
+      strikeRate: 15.2,
     },
     fielding: {
-      catches: 3,
-      runOuts: 0
+      catches: 6,
+      runOuts: 2
     },
     recentMatches: [
-      { date: "2024-03-12", opponent: "Eagles CC", wicketsTaken: 3, runsConceded: 24, dismissalType: "N/A" },
-      { date: "2024-03-05", opponent: "Warriors", wicketsTaken: 1, runsConceded: 30, dismissalType: "N/A" },
+      { date: "2024-03-12", opponent: "Eagles CC", runsScored: 42, wicketsTaken: 3, runsConceded: 24, dismissalType: "Caught" },
+      { date: "2024-03-05", opponent: "Warriors", runsScored: 15, wicketsTaken: 2, runsConceded: 18, dismissalType: "Not Out" },
     ]
   },
   historyData: [
-    { month: "Jan", wickets: 2 },
-    { month: "Feb", wickets: 6 },
-    { month: "Mar", wickets: 4 },
+    { month: "Jan", runs: 65, wickets: 8 },
+    { month: "Feb", runs: 92, wickets: 11 },
+    { month: "Mar", runs: 96, wickets: 10 },
   ]
 }
 
@@ -86,8 +86,8 @@ export default function LaxmanProfilePage() {
           </div>
         </div>
         <div className="flex gap-2">
-          <Badge variant="secondary" className="px-3 py-1">Top Bowler Rank: #1</Badge>
-          <Badge className="px-3 py-1 bg-blue-500">Specialist</Badge>
+          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #3</Badge>
+          <Badge className="px-3 py-1 bg-emerald-500 hover:bg-emerald-600">Available</Badge>
         </div>
       </div>
 
@@ -102,45 +102,56 @@ export default function LaxmanProfilePage() {
 
             <TabsContent value="stats" className="space-y-6">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="bg-card/50">
+                <Card className="bg-card/50 border-primary/10">
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.wickets}</div>
-                    <div className="text-xs text-muted-foreground">Wickets</div>
+                    <div className="text-2xl font-bold text-primary">{playerData.stats.bowling.wickets}</div>
+                    <div className="text-xs text-muted-foreground uppercase font-semibold">Wickets</div>
                   </CardContent>
                 </Card>
-                <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.economy}</div>
-                    <div className="text-xs text-muted-foreground">Economy</div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.strikeRate}</div>
-                    <div className="text-xs text-muted-foreground">SR</div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-card/50">
+                <Card className="bg-card/50 border-primary/10">
                   <CardContent className="pt-6 text-center">
                     <div className="text-2xl font-bold">{playerData.stats.batting.runs}</div>
-                    <div className="text-xs text-muted-foreground">Runs</div>
+                    <div className="text-xs text-muted-foreground uppercase font-semibold">Total Runs</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50 border-primary/10">
+                  <CardContent className="pt-6 text-center">
+                    <div className="text-2xl font-bold">{playerData.stats.bowling.economy}</div>
+                    <div className="text-xs text-muted-foreground uppercase font-semibold">Economy</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50 border-primary/10">
+                  <CardContent className="pt-6 text-center">
+                    <div className="text-2xl font-bold">{playerData.stats.batting.strikeRate}</div>
+                    <div className="text-xs text-muted-foreground uppercase font-semibold">Batting SR</div>
                   </CardContent>
                 </Card>
               </div>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Wicket Taking Trend</CardTitle>
+                  <CardTitle className="text-lg">Career Progress Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <AreaChart data={playerData.historyData}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                        <XAxis dataKey="month" stroke="#888" fontSize={12} />
-                        <YAxis stroke="#888" fontSize={12} />
+                        <defs>
+                          <linearGradient id="colorRuns" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+                          </linearGradient>
+                          <linearGradient id="colorWickets" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="hsl(var(--secondary))" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="hsl(var(--secondary))" stopOpacity={0}/>
+                          </linearGradient>
+                        </defs>
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee" />
+                        <XAxis dataKey="month" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <Tooltip />
-                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.1} strokeWidth={3} />
+                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRuns)" strokeWidth={3} name="Runs" />
+                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--secondary))" fillOpacity={1} fill="url(#colorWickets)" strokeWidth={3} name="Wickets" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
@@ -153,13 +164,16 @@ export default function LaxmanProfilePage() {
                 <CardContent className="p-0">
                   <div className="divide-y text-sm">
                     {playerData.stats.recentMatches.map((match, i) => (
-                      <div key={i} className="flex items-center justify-between p-4">
+                      <div key={i} className="flex items-center justify-between p-4 hover:bg-muted/30 transition-colors">
                         <div>
                           <p className="font-semibold">{match.opponent}</p>
-                          <p className="text-muted-foreground">{match.date}</p>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1">
+                             <Calendar className="h-3 w-3" /> {match.date}
+                          </p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-primary">{match.wicketsTaken} Wkts / {match.runsConceded} Runs</p>
+                          <p className="font-bold text-primary">{match.wicketsTaken} Wkts / {match.runsScored} Runs</p>
+                          <Badge variant="outline" className="text-[10px]">{match.dismissalType || "N/A"}</Badge>
                         </div>
                       </div>
                     ))}
@@ -170,8 +184,30 @@ export default function LaxmanProfilePage() {
 
             <TabsContent value="details">
               <Card>
-                <CardContent className="pt-6">
-                  <p className="text-sm">Specialist left-arm pace bowler known for swing and death-over precision.</p>
+                <CardContent className="pt-6 space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Batting Style</label>
+                      <p className="font-medium">{playerData.hand} Bat</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Bowling Style</label>
+                      <p className="font-medium">Right-arm Off-spin</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Role</label>
+                      <p className="font-medium">{playerData.role}</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Experience</label>
+                      <p className="font-medium">Academy Elite Squad</p>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <p className="text-sm text-muted-foreground italic">
+                      Laxman is a promising young talent specializing in off-spin bowling and providing crucial runs in the lower-middle order.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -181,11 +217,21 @@ export default function LaxmanProfilePage() {
         <div className="space-y-6">
           <AIInsightsPanel player={{ name: playerData.name, role: playerData.role, stats: playerData.stats }} />
           <Card>
-            <CardHeader><CardTitle className="text-lg">Awards</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Trophy className="h-4 w-4 text-amber-500" />
+                Awards
+              </CardTitle>
+            </CardHeader>
             <CardContent>
               <div className="flex gap-3 items-center">
-                <Award className="h-5 w-5 text-blue-500" />
-                <p className="text-sm font-medium">Golden Ball - Tournament X</p>
+                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                   <Award className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Golden Ball - Junior Circuit</p>
+                  <p className="text-xs text-muted-foreground">Most wickets in Season 2023</p>
+                </div>
               </div>
             </CardContent>
           </Card>
