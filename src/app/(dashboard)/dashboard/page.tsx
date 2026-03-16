@@ -26,7 +26,7 @@ const data = [
 
 const stats = [
   { title: "Total Players", value: "3", icon: Users, description: "Chandan, Krishan, Laxman", color: "text-blue-600" },
-  { title: "Avg. Strike Rate", value: "112.4", icon: TrendingUp, description: "+5.2% improvement", color: "text-purple-600" },
+  { title: "Total Runs", value: "7707", icon: Trophy, description: "Combined academy total", color: "text-amber-600" },
 ]
 
 export default function DashboardPage() {
@@ -41,7 +41,7 @@ export default function DashboardPage() {
             src={pitchImg.imageUrl}
             alt={pitchImg.description}
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-30"
             priority
             data-ai-hint={pitchImg.imageHint}
           />
@@ -50,7 +50,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="flex flex-col gap-1 relative z-10">
-        <h2 className="text-3xl font-bold tracking-tight font-headline">Academy Overview</h2>
+        <h2 className="text-3xl font-bold tracking-tight font-headline text-foreground">Academy Overview</h2>
         <p className="text-muted-foreground">Welcome back! Here's a quick look at your academy's performance.</p>
       </div>
 
