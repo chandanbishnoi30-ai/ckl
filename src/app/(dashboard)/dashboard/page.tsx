@@ -1,5 +1,7 @@
+
 "use client"
 
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Trophy, TrendingUp, CheckCircle2 } from "lucide-react"
 import { 
@@ -11,6 +13,7 @@ import {
   Tooltip,
   Cell
 } from "recharts"
+import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 const data = [
   { name: "Mon", runs: 45 },
@@ -28,16 +31,33 @@ const stats = [
 ]
 
 export default function DashboardPage() {
+  const pitchImg = PlaceHolderImages.find(img => img.id === 'cricket-pitch');
+
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col gap-1">
+    <div className="space-y-6 relative min-h-screen -m-4 md:-m-8 p-4 md:p-8">
+      {/* Background Wallpaper */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {pitchImg && (
+          <Image
+            src={pitchImg.imageUrl}
+            alt={pitchImg.description}
+            fill
+            className="object-cover opacity-15"
+            priority
+            data-ai-hint={pitchImg.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background" />
+      </div>
+
+      <div className="flex flex-col gap-1 relative z-10">
         <h2 className="text-3xl font-bold tracking-tight font-headline">Academy Overview</h2>
         <p className="text-muted-foreground">Welcome back! Here's a quick look at your academy's performance.</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 relative z-10">
         {stats.map((stat) => (
-          <Card key={stat.title} className="hover:shadow-md transition-shadow cursor-default">
+          <Card key={stat.title} className="hover:shadow-md transition-shadow cursor-default bg-white/80 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
               <stat.icon className={`h-4 w-4 ${stat.color}`} />
@@ -50,8 +70,8 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="lg:col-span-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 relative z-10">
+        <Card className="lg:col-span-4 bg-white/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Team Performance Trend</CardTitle>
             <CardDescription>Average runs scored per player this week</CardDescription>
@@ -86,7 +106,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="lg:col-span-3">
+        <Card className="lg:col-span-3 bg-white/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
             <CardDescription>Latest performance updates</CardDescription>
