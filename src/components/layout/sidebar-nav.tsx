@@ -112,10 +112,10 @@ export function SidebarNav() {
             <div className="flex items-center gap-3 px-2 py-2 group-data-[collapsible=icon]:hidden">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="https://picsum.photos/seed/coach/100/100" />
-                <AvatarFallback>CH</AvatarFallback>
+                <AvatarFallback>BH</AvatarFallback>
               </Avatar>
               <div className="flex flex-col overflow-hidden text-sm">
-                <span className="font-medium truncate">Coach Harrison</span>
+                <span className="font-medium truncate">Bhawana</span>
                 <span className="text-xs text-muted-foreground truncate">Head Coach</span>
               </div>
               <button className="ml-auto p-1 hover:bg-muted rounded-md transition-colors">
