@@ -1,7 +1,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Trophy, ArrowRight, BarChart3, Sparkles } from "lucide-react"
+import { Trophy, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
@@ -16,9 +16,6 @@ export default function LandingPage() {
           <span className="font-bold text-xl font-headline tracking-tighter">CKL Official</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
-            Features
-          </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/dashboard">
             Dashboard
           </Link>
@@ -57,34 +54,6 @@ export default function LandingPage() {
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="h-12 px-8 rounded-full" asChild>
-                  <Link href="#features">Learn More</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="features" className="w-full py-24 bg-white">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold font-headline">Core Features</h2>
-              <p className="text-muted-foreground max-w-[600px]">Powerful tools designed to help coaches and players reach their full potential.</p>
-            </div>
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="p-4 bg-primary/10 rounded-2xl">
-                  <BarChart3 className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-headline">Player Performance Tracking</h3>
-                <p className="text-muted-foreground">Comprehensive profiles for Chandan, Krishan, and Laxman. Detailed metrics and historical data at your fingertips.</p>
-              </div>
-              <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="p-4 bg-indigo-100 rounded-2xl">
-                  <Sparkles className="h-8 w-8 text-indigo-600" />
-                </div>
-                <h3 className="text-xl font-bold font-headline">AI Performance Insights</h3>
-                <p className="text-muted-foreground">Generative AI analysis provides personalized drills and highlights areas for technical improvement for every player.</p>
               </div>
             </div>
           </div>
