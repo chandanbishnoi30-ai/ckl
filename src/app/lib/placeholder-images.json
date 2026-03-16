@@ -8,6 +8,12 @@
       "imageHint": "cricket training"
     },
     {
+      "id": "cricket-ground",
+      "description": "A professional cricket stadium ground",
+      "imageUrl": "https://picsum.photos/seed/ground1/1920/1080",
+      "imageHint": "cricket ground"
+    },
+    {
       "id": "player-1",
       "description": "Professional cricket player portrait",
       "imageUrl": "https://picsum.photos/seed/player1/400/400",

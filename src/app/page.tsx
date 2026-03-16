@@ -1,8 +1,13 @@
+
 import Link from "next/link"
-import { Trophy, ArrowRight, ShieldCheck, BarChart3, Clock, Sparkles } from "lucide-react"
+import Image from "next/image"
+import { Trophy, ArrowRight, BarChart3, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function LandingPage() {
+  const cricketGroundImg = PlaceHolderImages.find(img => img.id === 'cricket-ground');
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/50 backdrop-blur-md sticky top-0 z-50">
@@ -14,14 +19,29 @@ export default function LandingPage() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
             Features
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/login">
-            Login
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/dashboard">
+            Dashboard
           </Link>
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background">
-          <div className="container px-4 md:px-6 mx-auto">
+        <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden">
+          {/* Wallpaper / Background Image */}
+          <div className="absolute inset-0 z-0">
+            {cricketGroundImg && (
+              <Image
+                src={cricketGroundImg.imageUrl}
+                alt={cricketGroundImg.description}
+                fill
+                className="object-cover opacity-20"
+                priority
+                data-ai-hint={cricketGroundImg.imageHint}
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
+          </div>
+
+          <div className="container relative z-10 px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2 max-w-3xl">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
@@ -38,7 +58,7 @@ export default function LandingPage() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="h-12 px-8 rounded-full" asChild>
-                  <Link href="#demo">View Demo</Link>
+                  <Link href="#features">Learn More</Link>
                 </Button>
               </div>
             </div>
