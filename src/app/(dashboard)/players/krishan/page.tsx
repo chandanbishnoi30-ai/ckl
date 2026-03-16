@@ -39,12 +39,12 @@ const playerData = {
       runs: 185,
       average: 23.1,
       strikeRate: 118.5,
-      fours: 12,
-      sixes: 8,
+      fours: 7,
+      sixes: 15,
     },
     bowling: {
       matches: 10,
-      wickets: 8,
+      wickets: 22,
       economy: 7.2,
       average: 18.5,
     },
@@ -58,9 +58,9 @@ const playerData = {
     ]
   },
   historyData: [
-    { month: "Jan", runs: 30 },
-    { month: "Feb", runs: 85 },
-    { month: "Mar", runs: 70 },
+    { month: "Jan", runs: 30, wickets: 4 },
+    { month: "Feb", runs: 85, wickets: 10 },
+    { month: "Mar", runs: 70, wickets: 8 },
   ]
 }
 
@@ -90,7 +90,7 @@ export default function KrishanProfilePage() {
         </div>
         <div className="flex gap-2">
           <Badge variant="secondary" className="px-3 py-1">Overall Rank: #2</Badge>
-          <Badge className="px-3 py-1 bg-emerald-500">Active</Badge>
+          <Badge className="px-3 py-1 bg-emerald-500 text-white border-none">Active</Badge>
         </div>
       </div>
 
@@ -104,29 +104,35 @@ export default function KrishanProfilePage() {
             </TabsList>
 
             <TabsContent value="stats" className="space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.runs}</div>
-                    <div className="text-xs text-muted-foreground">Runs</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Runs</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.wickets}</div>
-                    <div className="text-xs text-muted-foreground">Wickets</div>
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold text-primary">{playerData.stats.bowling.wickets}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Wickets</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold">{playerData.stats.batting.sixes}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Sixes</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold">{playerData.stats.batting.fours}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Fours</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.bowling.economy}</div>
-                    <div className="text-xs text-muted-foreground">Economy</div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.fielding.catches}</div>
-                    <div className="text-xs text-muted-foreground">Catches</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Econ</div>
                   </CardContent>
                 </Card>
               </div>
@@ -139,11 +145,18 @@ export default function KrishanProfilePage() {
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <AreaChart data={playerData.historyData}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                        <XAxis dataKey="month" stroke="#888" fontSize={12} />
-                        <YAxis stroke="#888" fontSize={12} />
+                        <defs>
+                          <linearGradient id="colorRunsK" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+                          </linearGradient>
+                        </defs>
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee" />
+                        <XAxis dataKey="month" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <Tooltip />
-                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.1} strokeWidth={3} />
+                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRunsK)" strokeWidth={3} name="Runs" />
+                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--secondary))" fillOpacity={0.1} strokeWidth={2} name="Wickets" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
@@ -156,13 +169,16 @@ export default function KrishanProfilePage() {
                 <CardContent className="p-0">
                   <div className="divide-y">
                     {playerData.stats.recentMatches.map((match, i) => (
-                      <div key={i} className="flex items-center justify-between p-4">
+                      <div key={i} className="flex items-center justify-between p-4 hover:bg-muted/30 transition-colors">
                         <div className="space-y-1">
                           <p className="font-semibold">{match.opponent}</p>
-                          <p className="text-xs text-muted-foreground">{match.date}</p>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1">
+                            <Calendar className="h-3 w-3" /> {match.date}
+                          </p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold">{match.runsScored} Runs / {match.wicketsTaken} Wkts</p>
+                          <p className="font-bold text-sm">{match.runsScored} Runs / {match.wicketsTaken} Wkts</p>
+                          <Badge variant="outline" className="text-[10px] uppercase">{match.dismissalType}</Badge>
                         </div>
                       </div>
                     ))}
@@ -185,7 +201,9 @@ export default function KrishanProfilePage() {
                     </div>
                   </div>
                   <Separator className="my-4" />
-                  <p className="text-sm">Versatile all-rounder with strong finishing capabilities in middle overs.</p>
+                  <p className="text-sm text-muted-foreground italic">
+                    Versatile all-rounder with strong finishing capabilities in middle overs and a knack for picking up crucial wickets.
+                  </p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -195,11 +213,21 @@ export default function KrishanProfilePage() {
         <div className="space-y-6">
           <AIInsightsPanel player={{ name: playerData.name, role: playerData.role, stats: playerData.stats }} />
           <Card>
-            <CardHeader><CardTitle className="text-lg">Honors</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Trophy className="h-4 w-4 text-amber-500" />
+                Honors
+              </CardTitle>
+            </CardHeader>
             <CardContent>
               <div className="flex gap-3 items-center">
-                <Trophy className="h-5 w-5 text-amber-500" />
-                <p className="text-sm font-medium">Best All-rounder 2023</p>
+                <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                  <Award className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Best All-rounder 2023</p>
+                  <p className="text-xs text-muted-foreground">Academy Junior Division</p>
+                </div>
               </div>
             </CardContent>
           </Card>
