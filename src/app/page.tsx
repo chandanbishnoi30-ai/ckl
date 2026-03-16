@@ -42,7 +42,7 @@ export default function LandingPage() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2 max-w-3xl">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
-                  Join for Bright Future with <span className="text-primary">CKL Official</span>
+                  set Bright Future with <span className="text-primary">CKL Official</span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   The ultimate management platform for cricket academies. Track player performance and unlock AI-powered performance insights.
