@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from "react"
@@ -7,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AIInsightsPanel } from "@/components/dashboard/ai-insights-panel"
+import { Separator } from "@/components/ui/separator"
 import { 
   CartesianGrid, 
   XAxis, 
