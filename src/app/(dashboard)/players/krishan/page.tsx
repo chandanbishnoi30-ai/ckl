@@ -29,8 +29,8 @@ import {
 const playerData = {
   name: "Krishan",
   role: "All-rounder",
-  age: 21,
-  hand: "Right-hand",
+  age: 15,
+  hand: "Left-hand",
   status: "Active",
   stats: {
     batting: {
@@ -174,6 +174,17 @@ export default function KrishanProfilePage() {
             <TabsContent value="details">
               <Card>
                 <CardContent className="pt-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Batting Style</label>
+                      <p className="font-medium">{playerData.hand} Bat</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Role</label>
+                      <p className="font-medium">{playerData.role}</p>
+                    </div>
+                  </div>
+                  <Separator className="my-4" />
                   <p className="text-sm">Versatile all-rounder with strong finishing capabilities in middle overs.</p>
                 </CardContent>
               </Card>
