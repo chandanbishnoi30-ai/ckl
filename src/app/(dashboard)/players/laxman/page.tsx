@@ -89,7 +89,7 @@ export default function LaxmanProfilePage() {
           </div>
         </div>
         <div className="flex gap-2">
-          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #3</Badge>
+          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #2</Badge>
           <Badge className="px-3 py-1 bg-emerald-500 hover:bg-emerald-600">Available</Badge>
         </div>
       </div>

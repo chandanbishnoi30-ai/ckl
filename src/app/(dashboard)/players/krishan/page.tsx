@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from "react"
@@ -90,7 +91,7 @@ export default function KrishanProfilePage() {
           </div>
         </div>
         <div className="flex gap-2">
-          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #2</Badge>
+          <Badge variant="secondary" className="px-3 py-1">Overall Rank: #3</Badge>
           <Badge className="px-3 py-1 bg-emerald-500 text-white border-none">Active</Badge>
         </div>
       </div>
