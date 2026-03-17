@@ -35,21 +35,21 @@ const playerData = {
     batting: {
       matches: 12,
       innings: 12,
-      runs: 240,
-      average: 24.0,
+      runs: 494,
+      average: 41.2,
       strikeRate: 135.2,
-      fours: 14,
-      sixes: 22,
-      fifties: 1,
+      fours: 30,
+      sixes: 46,
+      fifties: 2,
       hundreds: 0,
     },
     bowling: {
       matches: 12,
-      wickets: 21,
+      wickets: 35,
       economy: 5.4,
     },
     fielding: {
-      catches: 5,
+      catches: 6,
       runOuts: 1
     },
     recentMatches: [
@@ -59,9 +59,9 @@ const playerData = {
     ]
   },
   historyData: [
-    { month: "Jan", runs: 40, wickets: 4 },
-    { month: "Feb", runs: 65, wickets: 8 },
-    { month: "Mar", runs: 135, wickets: 9 },
+    { month: "Jan", runs: 120, wickets: 10 },
+    { month: "Feb", runs: 240, wickets: 25 },
+    { month: "Mar", runs: 494, wickets: 35 },
   ]
 }
 
@@ -132,8 +132,8 @@ export default function ChandanProfilePage() {
                 </Card>
                 <Card className="bg-card/50">
                   <CardContent className="pt-6 text-center px-2">
-                    <div className="text-2xl font-bold">{playerData.stats.batting.strikeRate}</div>
-                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">SR</div>
+                    <div className="text-2xl font-bold">{playerData.stats.batting.fifties}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">50's</div>
                   </CardContent>
                 </Card>
               </div>
@@ -203,6 +203,14 @@ export default function ChandanProfilePage() {
                     <div>
                       <label className="text-xs text-muted-foreground uppercase font-semibold">Role</label>
                       <p className="font-medium">{playerData.role}</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Catches</label>
+                      <p className="font-medium">{playerData.stats.fielding.catches}</p>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground uppercase font-semibold">Average</label>
+                      <p className="font-medium">{playerData.stats.batting.average}</p>
                     </div>
                   </div>
                 </CardContent>
