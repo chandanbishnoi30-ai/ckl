@@ -1,7 +1,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Trophy, ArrowRight } from "lucide-react"
+import { Trophy, ArrowRight, UserPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
@@ -15,7 +15,10 @@ export default function LandingPage() {
           <Trophy className="h-6 w-6 text-primary" />
           <span className="font-bold text-xl font-headline tracking-tighter">CKL Official</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/apply">
+            Apply Now
+          </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/dashboard">
             Dashboard
           </Link>
@@ -50,8 +53,13 @@ export default function LandingPage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="h-12 px-8 rounded-full shadow-lg hover:shadow-primary/25 transition-all" asChild>
+                  <Link href="/apply">
+                    Apply to Join <UserPlus className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="h-12 px-8 rounded-full shadow-sm transition-all" asChild>
                   <Link href="/dashboard">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                    Admin Portal <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
