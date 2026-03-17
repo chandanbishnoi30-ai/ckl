@@ -36,31 +36,32 @@ const playerData = {
     batting: {
       matches: 10,
       innings: 10,
-      runs: 185,
-      average: 23.1,
-      strikeRate: 118.5,
-      fours: 7,
-      sixes: 15,
+      runs: 375,
+      average: 37.5,
+      strikeRate: 124.2,
+      fours: 20,
+      sixes: 32,
+      fifties: 1,
     },
     bowling: {
       matches: 10,
-      wickets: 22,
-      economy: 7.2,
-      average: 18.5,
+      wickets: 35,
+      economy: 6.8,
+      average: 15.4,
     },
     fielding: {
       catches: 8,
       runOuts: 2
     },
     recentMatches: [
-      { date: "2024-03-14", opponent: "Eagles CC", runsScored: 32, wicketsTaken: 2, dismissalType: "Caught" },
-      { date: "2024-03-07", opponent: "Warriors", runsScored: 12, wicketsTaken: 1, dismissalType: "Bowled" },
+      { date: "2024-03-14", opponent: "Eagles CC", runsScored: 52, wicketsTaken: 3, dismissalType: "Caught" },
+      { date: "2024-03-07", opponent: "Warriors", runsScored: 45, wicketsTaken: 2, dismissalType: "Bowled" },
     ]
   },
   historyData: [
-    { month: "Jan", runs: 30, wickets: 4 },
-    { month: "Feb", runs: 85, wickets: 10 },
-    { month: "Mar", runs: 70, wickets: 8 },
+    { month: "Jan", runs: 80, wickets: 10 },
+    { month: "Feb", runs: 210, wickets: 22 },
+    { month: "Mar", runs: 375, wickets: 35 },
   ]
 }
 
@@ -119,20 +120,20 @@ export default function KrishanProfilePage() {
                 </Card>
                 <Card className="bg-card/50">
                   <CardContent className="pt-6 text-center px-2">
-                    <div className="text-2xl font-bold">{playerData.stats.batting.sixes}</div>
-                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Sixes</div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-card/50">
-                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.fours}</div>
                     <div className="text-[10px] uppercase text-muted-foreground font-semibold">Fours</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50">
                   <CardContent className="pt-6 text-center px-2">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.economy}</div>
-                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Econ</div>
+                    <div className="text-2xl font-bold">{playerData.stats.batting.sixes}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Sixes</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold text-secondary">{playerData.stats.batting.fifties}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">50's</div>
                   </CardContent>
                 </Card>
               </div>
