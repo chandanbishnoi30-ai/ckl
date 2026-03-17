@@ -35,12 +35,15 @@ const playerData = {
   stats: {
     batting: {
       matches: 18,
-      runs: 253,
+      runs: 447,
       strikeRate: 112.4,
+      fours: 44,
+      sixes: 10,
+      fifties: 2,
     },
     bowling: {
       matches: 18,
-      wickets: 29,
+      wickets: 51,
       economy: 4.8,
       average: 12.5,
       strikeRate: 15.2,
@@ -56,8 +59,8 @@ const playerData = {
   },
   historyData: [
     { month: "Jan", runs: 65, wickets: 8 },
-    { month: "Feb", runs: 92, wickets: 11 },
-    { month: "Mar", runs: 96, wickets: 10 },
+    { month: "Feb", runs: 210, wickets: 25 },
+    { month: "Mar", runs: 447, wickets: 51 },
   ]
 }
 
@@ -101,29 +104,35 @@ export default function LaxmanProfilePage() {
             </TabsList>
 
             <TabsContent value="stats" className="space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <Card className="bg-card/50 border-primary/10">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary">{playerData.stats.bowling.wickets}</div>
-                    <div className="text-xs text-muted-foreground uppercase font-semibold">Wickets</div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-card/50 border-primary/10">
-                  <CardContent className="pt-6 text-center">
+                  <CardContent className="pt-6 text-center px-2">
                     <div className="text-2xl font-bold">{playerData.stats.batting.runs}</div>
-                    <div className="text-xs text-muted-foreground uppercase font-semibold">Total Runs</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Runs</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50 border-primary/10">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.bowling.economy}</div>
-                    <div className="text-xs text-muted-foreground uppercase font-semibold">Economy</div>
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold text-primary">{playerData.stats.bowling.wickets}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Wickets</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-card/50 border-primary/10">
-                  <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold">{playerData.stats.batting.strikeRate}</div>
-                    <div className="text-xs text-muted-foreground uppercase font-semibold">Batting SR</div>
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold">{playerData.stats.batting.fours}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Fours</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50 border-primary/10">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold">{playerData.stats.batting.sixes}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">Sixes</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-card/50 border-primary/10">
+                  <CardContent className="pt-6 text-center px-2">
+                    <div className="text-2xl font-bold text-secondary">{playerData.stats.batting.fifties}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground font-semibold">50's</div>
                   </CardContent>
                 </Card>
               </div>
@@ -137,11 +146,11 @@ export default function LaxmanProfilePage() {
                     <ResponsiveContainer width="100%" height="100%">
                       <AreaChart data={playerData.historyData}>
                         <defs>
-                          <linearGradient id="colorRuns" x1="0" y1="0" x2="0" y2="1">
+                          <linearGradient id="colorRunsL" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
                             <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
                           </linearGradient>
-                          <linearGradient id="colorWickets" x1="0" y1="0" x2="0" y2="1">
+                          <linearGradient id="colorWicketsL" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="hsl(var(--secondary))" stopOpacity={0.3}/>
                             <stop offset="95%" stopColor="hsl(var(--secondary))" stopOpacity={0}/>
                           </linearGradient>
@@ -150,8 +159,8 @@ export default function LaxmanProfilePage() {
                         <XAxis dataKey="month" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
                         <Tooltip />
-                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRuns)" strokeWidth={3} name="Runs" />
-                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--secondary))" fillOpacity={1} fill="url(#colorWickets)" strokeWidth={3} name="Wickets" />
+                        <Area type="monotone" dataKey="runs" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRunsL)" strokeWidth={3} name="Runs" />
+                        <Area type="monotone" dataKey="wickets" stroke="hsl(var(--secondary))" fillOpacity={1} fill="url(#colorWicketsL)" strokeWidth={3} name="Wickets" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
